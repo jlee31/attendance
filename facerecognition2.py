@@ -1,6 +1,9 @@
 from __future__ import print_function
 import cv2 as cv
 import argparse
+
+# https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
+
 def detectAndDisplay(frame):
     frame_gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     frame_gray = cv.equalizeHist(frame_gray)
