@@ -1,3 +1,4 @@
+# Imports
 import cv2 as cv
 import numpy as np
 import tkinter as tk
@@ -8,6 +9,7 @@ import threading
 
 class FaceDetectionApp:
     def __init__(self, root):
+        # Tkinter Window Configuration
         self.root = root
         self.root.title("Face Detection")
         self.root.geometry("1000x600")
@@ -17,6 +19,8 @@ class FaceDetectionApp:
         
         self.notebook = ttk.Notebook(self.root)
         self.notebook.pack(fill=tk.BOTH, expand=True)
+
+        # Different Tabs
 
         self.image_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.image_tab, text="Process an Image")
@@ -30,6 +34,8 @@ class FaceDetectionApp:
         self.notebook.add(self.settings_tab, text="Settings")
         self.setup_settings()
 
+        # Variables 
+        
         self.image = None
         self.video_capture = None
         self.is_processing_video = False
@@ -193,11 +199,3 @@ class FaceDetectionApp:
             self.min_size.set(settings.get("min_size", 30))
         except FileNotFoundError:
             pass
-
-def main():
-    root = tk.Tk()
-    app = FaceDetectionApp(root)
-    root.mainloop()
-
-if __name__ == "__main__":
-    main()
